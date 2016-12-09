@@ -1,0 +1,164 @@
+10:15:09 **** Incremental Build of configuration Release for project NTAG_I2C_Explorer_Demo ****
+make -r all 
+Building file: ../src/HW_functions.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DBOARD_NTAG_I2C_EXPLORER -D__LPC11U37H__ -DHAVE_NTAG_INTERRUPT -DHAVE_STDINT_H -DCORE_M0 -D__MTB_BUFFER_SIZE=2048 -DHAVE_STDBOOL_H -D__USE_LPC -DNDEBUG -D__CODE_RED -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\HAL_I2C\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc\usbd" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/HW_functions.d" -MT"src/HW_functions.o" -MT"src/HW_functions.d" -o "src/HW_functions.o" "../src/HW_functions.c"
+In file included from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc/rfid_api_full.h:62:0,
+                 from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/global_variables.h:4,
+                 from ../src/HW_functions.c:13:
+c:\users\nxp91080\documents\lpcxpresso_7.9.2_493\workspace_ntag_i2c_new\ntag_i2c_api\src\hal_ntag\inc\ntag_driver.h:85:0: warning: "HAVE_NTAG_INTERRUPT" redefined
+ #define HAVE_NTAG_INTERRUPT
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/HW_functions.c: In function 'InitPWM':
+../src/HW_functions.c:263:11: warning: variable 'timerFreq' set but not used [-Wunused-but-set-variable]
+  uint32_t timerFreq;
+           ^
+In file included from ../src/HW_functions.c:13:0:
+../src/HW_functions.c: At top level:
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/global_variables.h:7:26: warning: 'i2cHandleMaster' defined but not used [-Wunused-variable]
+ static HAL_I2C_HANDLE_T *i2cHandleMaster;
+                          ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/global_variables.h:10:16: warning: 'sram_buf' defined but not used [-Wunused-variable]
+ static uint8_t sram_buf[NTAG_MEM_SRAM_SIZE];
+                ^
+Finished building: ../src/HW_functions.c
+ 
+Building file: ../src/crc32.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DBOARD_NTAG_I2C_EXPLORER -D__LPC11U37H__ -DHAVE_NTAG_INTERRUPT -DHAVE_STDINT_H -DCORE_M0 -D__MTB_BUFFER_SIZE=2048 -DHAVE_STDBOOL_H -D__USE_LPC -DNDEBUG -D__CODE_RED -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\HAL_I2C\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc\usbd" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/crc32.d" -MT"src/crc32.o" -MT"src/crc32.d" -o "src/crc32.o" "../src/crc32.c"
+Finished building: ../src/crc32.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DBOARD_NTAG_I2C_EXPLORER -D__LPC11U37H__ -DHAVE_NTAG_INTERRUPT -DHAVE_STDINT_H -DCORE_M0 -D__MTB_BUFFER_SIZE=2048 -DHAVE_STDBOOL_H -D__USE_LPC -DNDEBUG -D__CODE_RED -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\HAL_I2C\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc\usbd" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc/rfid_api_full.h:62:0,
+                 from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/global_variables.h:4,
+                 from ../src/main.c:4:
+c:\users\nxp91080\documents\lpcxpresso_7.9.2_493\workspace_ntag_i2c_new\ntag_i2c_api\src\hal_ntag\inc\ntag_driver.h:85:0: warning: "HAVE_NTAG_INTERRUPT" redefined
+ #define HAVE_NTAG_INTERRUPT
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+In file included from ../src/main.c:9:0:
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:98:14: warning: type defaults to 'int' in declaration of 'Default_NDEF_Message_length' [-Wimplicit-int]
+ static const Default_NDEF_Message_length = sizeof(Default_NDEF_Message);
+              ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:99:20: warning: type defaults to 'int' in declaration of 'Default_BeginingOfMemory_length' [-Wimplicit-int]
+ static const const Default_BeginingOfMemory_length = sizeof(Default_BeginingOfMemory);
+                    ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:100:14: warning: type defaults to 'int' in declaration of 'Null_Block_length' [-Wimplicit-int]
+ static const Null_Block_length = sizeof(Null_Block);
+              ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:101:14: warning: type defaults to 'int' in declaration of 'Default_Page_56_length' [-Wimplicit-int]
+ static const Default_Page_56_length = sizeof(Default_Page_56);
+              ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:102:14: warning: type defaults to 'int' in declaration of 'Default_Page_57_length' [-Wimplicit-int]
+ static const Default_Page_57_length = sizeof(Default_Page_57);
+              ^
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_message.h:103:14: warning: type defaults to 'int' in declaration of 'Default_Page_58_length' [-Wimplicit-int]
+ static const Default_Page_58_length = sizeof(Default_Page_58);
+              ^
+../src/main.c: In function 'main':
+../src/main.c:204:14: warning: passing argument 1 of 'LED_Demo' from incompatible pointer type
+     LED_Demo(&LCD_initialized,&LCDScrollCount);
+              ^
+../src/main.c:24:6: note: expected '_Bool *' but argument is of type '_Bool **'
+ void LED_Demo(bool *LCD_initialized, uint32_t *LCDScrollCount);
+      ^
+../src/main.c:204:31: warning: passing argument 2 of 'LED_Demo' from incompatible pointer type
+     LED_Demo(&LCD_initialized,&LCDScrollCount);
+                               ^
+../src/main.c:24:6: note: expected 'uint32_t *' but argument is of type 'uint32_t **'
+ void LED_Demo(bool *LCD_initialized, uint32_t *LCDScrollCount);
+      ^
+../src/main.c:212:18: warning: passing argument 1 of 'RGBcube_Demo' from incompatible pointer type
+     RGBcube_Demo(&LCD_initialized);
+                  ^
+../src/main.c:50:6: note: expected '_Bool *' but argument is of type '_Bool **'
+ void RGBcube_Demo(bool *LCD_initialized);
+      ^
+../src/main.c: In function 'LED_Demo':
+../src/main.c:319:43: warning: passing argument 3 of 'parse_ndef' from incompatible pointer type
+    parse_ndef(rxbuffer, LCDmessagebuffer, &NDEFmessagelen);
+                                           ^
+In file included from ../src/main.c:10:0:
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_parser.h:18:6: note: expected 'uint8_t *' but argument is of type 'uint8_t **'
+ void parse_ndef( uint8_t rxbuffer[], uint8_t messagebuffer[],uint8_t *messagebuffer_size);
+      ^
+../src/main.c:331:51: warning: comparison between pointer and integer
+    if ((LPC_TIMER32_0->IR & 1) && (NDEFmessagelen > 16)) // Timer match used for scrolling feature
+                                                   ^
+../src/main.c:334:25: warning: comparison between pointer and integer
+     if (*LCDScrollCount < (NDEFmessagelen)+16)
+                         ^
+../src/main.c: In function 'factory_reset_Tag':
+../src/main.c:441:3: warning: implicit declaration of function 'NTAG_WriteBlock' [-Wimplicit-function-declaration]
+   NFC_WriteBlock(ntag_handle, page, Null_Block, NTAG_I2C_BLOCK_SIZE);
+   ^
+../src/main.c: In function 'speedTest':
+../src/main.c:549:11: warning: variable 'stop_tag' set but not used [-Wunused-but-set-variable]
+  uint32_t stop_tag;
+           ^
+../src/main.c:548:11: warning: variable 'start_tag' set but not used [-Wunused-but-set-variable]
+  uint32_t start_tag;
+           ^
+../src/main.c:546:11: warning: variable 'stop_reader' set but not used [-Wunused-but-set-variable]
+  uint32_t stop_reader;
+           ^
+../src/main.c:545:11: warning: variable 'start_reader' set but not used [-Wunused-but-set-variable]
+  uint32_t start_reader;
+           ^
+Finished building: ../src/main.c
+ 
+Building file: ../src/ndef_parser.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DBOARD_NTAG_I2C_EXPLORER -D__LPC11U37H__ -DHAVE_NTAG_INTERRUPT -DHAVE_STDINT_H -DCORE_M0 -D__MTB_BUFFER_SIZE=2048 -DHAVE_STDBOOL_H -D__USE_LPC -DNDEBUG -D__CODE_RED -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\HAL_I2C\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc\usbd" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ndef_parser.d" -MT"src/ndef_parser.o" -MT"src/ndef_parser.d" -o "src/ndef_parser.o" "../src/ndef_parser.c"
+../src/ndef_parser.c: In function 'parse_ndef':
+../src/ndef_parser.c:22:4: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+    memcpy(messagebuffer+16, rxbuffer+9, *messagebuffer_size);
+    ^
+../src/ndef_parser.c:28:4: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+    memset(uriText, 0, 26);
+    ^
+../src/ndef_parser.c:30:37: warning: passing argument 3 of 'getUriType' from incompatible pointer type
+    getUriType(rxbuffer[6], uriText, &uriIDLength);
+                                     ^
+In file included from ../src/ndef_parser.c:8:0:
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_parser.h:28:6: note: expected 'uint8_t *' but argument is of type 'uint8_t **'
+ void getUriType(uint8_t uriType, uint8_t uriText[], uint8_t* uriLength);
+      ^
+../src/ndef_parser.c:33:18: warning: initialization makes integer from pointer without a cast
+    uint8_t uri = uriIDLength;
+                  ^
+../src/ndef_parser.c:35:24: warning: assignment makes integer from pointer without a cast
+    *messagebuffer_size = uriIDLength + (payload_lenght-1);
+                        ^
+../src/ndef_parser.c:50:49: warning: passing argument 3 of 'getUriType' from incompatible pointer type
+    getUriType(rxbuffer[uritypestarts], uriText, &uriIDLength);
+                                                 ^
+In file included from ../src/ndef_parser.c:8:0:
+C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_Demo\inc/ndef_parser.h:28:6: note: expected 'uint8_t *' but argument is of type 'uint8_t **'
+ void getUriType(uint8_t uriType, uint8_t uriText[], uint8_t* uriLength);
+      ^
+../src/ndef_parser.c:56:18: warning: initialization makes integer from pointer without a cast
+    uint8_t uri = uriIDLength;
+                  ^
+Finished building: ../src/ndef_parser.c
+ 
+Building target: NTAG_I2C_Explorer_Demo.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\Release" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\Release" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\Release" -Xlinker -Map="NTAG_I2C_Explorer_Demo.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "NTAG_I2C_Explorer_Release.ld" -o "NTAG_I2C_Explorer_Demo.axf"  ./src/HW_functions.o ./src/crc32.o ./src/main.o ./src/ndef_parser.o   -lNTAG_I2C_API -lnxp_lpcxpresso_11u24h_board_lib -llpc_chip_11uxx_lib
+Finished building target: NTAG_I2C_Explorer_Demo.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "NTAG_I2C_Explorer_Demo.axf" ; arm-none-eabi-objcopy -v -O binary "NTAG_I2C_Explorer_Demo.axf" "NTAG_I2C_Explorer_Demo.bin" ; checksum -p LPC11U24_401 -d "NTAG_I2C_Explorer_Demo.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9168	     72	   1156	  10396	   289c	NTAG_I2C_Explorer_Demo.axf
+copy from `NTAG_I2C_Explorer_Demo.axf' [elf32-littlearm] to `NTAG_I2C_Explorer_Demo.bin' [binary]
+Written checksum 0xefff1d35 at offset 0x1c in file NTAG_I2C_Explorer_Demo.bin
+Previous value 0x00000000 at offset 0x1c in file NTAG_I2C_Explorer_Demo.bin
+ 
+
+10:15:12 Build Finished (took 3s.317ms)
+

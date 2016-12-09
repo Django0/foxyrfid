@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F98B4697-C1EC-4AE1-8FBE-173590157F29}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PeekAndPoke</RootNamespace>
+    <AssemblyName>PeekAndPoke</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>NTAG-I2C Explorer_Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessRegPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessRegPanel.Designer.cs">
+      <DependentUpon>AccessRegPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigRegPanel_Noplus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigRegPanel_Noplus.Designer.cs">
+      <DependentUpon>ConfigRegPanel_Noplus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigRegPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigRegPanel.Designer.cs">
+      <DependentUpon>ConfigRegPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DGVUtils.cs" />
+    <Compile Include="I2CAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I2CAddress.Designer.cs">
+      <DependentUpon>I2CAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NDEFUtils.cs" />
+    <Compile Include="NtagI2CDevice.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionRegPanel_Noplus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionRegPanel_Noplus.Designer.cs">
+      <DependentUpon>SessionRegPanel_Noplus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionRegPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionRegPanel.Designer.cs">
+      <DependentUpon>SessionRegPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+    <Compile Include="WriteNdefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteNdefForm.Designer.cs">
+      <DependentUpon>WriteNdefForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccessRegPanel.resx">
+      <DependentUpon>AccessRegPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigRegPanel_Noplus.resx">
+      <DependentUpon>ConfigRegPanel_Noplus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigRegPanel.resx">
+      <DependentUpon>ConfigRegPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I2CAddress.resx">
+      <DependentUpon>I2CAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SessionRegPanel_Noplus.resx">
+      <DependentUpon>SessionRegPanel_Noplus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionRegPanel.resx">
+      <DependentUpon>SessionRegPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteNdefForm.resx">
+      <DependentUpon>WriteNdefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NTAG-I2C Explorer_Icon.ico" />
+    <None Include="Resources\AUTHBackgroundImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\HID\HidLibrary-master\src\HidLibrary\HidLibrary.csproj">
+      <Project>{9e8f1d50-74ea-4c60-bd5c-ab2c5b53bc66}</Project>
+      <Name>HidLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTAG_I2C_API\NTAG_I2C_API.csproj">
+      <Project>{932d978e-9ce4-4acc-86a1-cc96d43f3e87}</Project>
+      <Name>NTAG_I2C_API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTAG_I2C_Contracts\NTAG_I2C_Contracts.csproj">
+      <Project>{6d08a426-e980-4089-bdcb-d78aac303723}</Project>
+      <Name>NTAG_I2C_Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

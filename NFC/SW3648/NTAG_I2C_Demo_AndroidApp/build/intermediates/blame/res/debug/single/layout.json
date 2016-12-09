@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_resetmemory.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_resetmemory.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_help.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_registersession.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_registersession.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_auth.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_auth.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_debug.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_debug.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_readmemory.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_readmemory.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_speedtest.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\fragment_speedtest.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_flashmemory.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_flashmemory.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_versioninfo.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_versioninfo.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_ndef.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\fragment_ndef.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_leddemo.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\fragment_leddemo.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\activity_registerconfig.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\activity_registerconfig.xml"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_config.xml",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\layout\\fragment_config.xml"
+    }
+]

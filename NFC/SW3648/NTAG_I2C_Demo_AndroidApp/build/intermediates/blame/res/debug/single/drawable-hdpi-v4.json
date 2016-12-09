@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\list_focused_nxp.9.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\list_focused_nxp.9.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\maintenance.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\maintenance.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\update.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\update.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\hide.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\hide.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\table.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\table.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\reset.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\reset.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_about.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\ic_action_about.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ntagi2c.PNG",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\ntagi2c.PNG"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\nxp_footer.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\nxp_footer.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\expand.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-hdpi\\expand.png"
+    }
+]

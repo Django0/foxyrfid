@@ -1,0 +1,18 @@
+09:35:00 **** Build of configuration Debug for project NTAG_I2C_Explorer_Blink ****
+make -r all 
+Building target: NTAG_I2C_Explorer_Blink.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\Debug" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\Debug" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\Debug" -Xlinker -Map="NTAG_I2C_Explorer_Blink.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "NTAG_I2C_Explorer_Blink_Debug.ld" -o "NTAG_I2C_Explorer_Blink.axf"  ./src/HW_functions.o ./src/main.o   -lNTAG_I2C_API -lnxp_lpcxpresso_11u24h_board_lib -llpc_chip_11uxx_lib
+Finished building target: NTAG_I2C_Explorer_Blink.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size NTAG_I2C_Explorer_Blink.axf ; arm-none-eabi-objcopy -O binary NTAG_I2C_Explorer_Blink.axf NTAG_I2C_Explorer_Blink.bin ; checksum -p LPC11U24_401 -d NTAG_I2C_Explorer_Blink.bin ; arm-none-eabi-objcopy -I binary -O ihex NTAG_I2C_Explorer_Blink.bin NTAG_I2C_Explorer_Blink.hex
+   text	   data	    bss	    dec	    hex	filename
+   5892	     72	     60	   6024	   1788	NTAG_I2C_Explorer_Blink.axf
+Written checksum 0xefff1b01 at offset 0x1c in file NTAG_I2C_Explorer_Blink.bin
+Previous value 0x00000000 at offset 0x1c in file NTAG_I2C_Explorer_Blink.bin
+ 
+
+09:35:02 Build Finished (took 1s.55ms)
+

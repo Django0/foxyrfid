@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NTAG_I2C_Demo", "NTAG_I2C_Demo\NTAG_I2C_Demo.vcxproj", "{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8D03D249-DB35-4370-8217-04DCDAC1111E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Debug|Win32.ActiveCfg = Debug|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Debug|Win32.Build.0 = Debug|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Release|Any CPU.ActiveCfg = Release|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Release|Win32.ActiveCfg = Release|Win32
+		{09C7C32F-8C9E-44C8-B7F4-DC6222D73525}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

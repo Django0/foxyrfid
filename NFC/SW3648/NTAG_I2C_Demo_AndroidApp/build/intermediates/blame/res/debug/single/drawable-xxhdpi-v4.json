@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_action_about.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\ic_action_about.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\disabled.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\disabled.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\lock.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\lock.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\authenticated.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\authenticated.png"
+    },
+    {
+        "merged": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\unlock.png",
+        "source": "C:\\Users\\nxa23396\\Desktop\\NTAG_AndroidApp_AndroStudio\\res\\drawable-xxhdpi\\unlock.png"
+    }
+]

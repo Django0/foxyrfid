@@ -1,0 +1,5 @@
+HidLibrary: https://github.com/mikeobrien/HidLibrary
+AHID: http://embedded24.net/  http://ahidlib.com/ (it has free version and pay version)
+Windows functions: https://msdn.microsoft.com/en-us/library/windows/hardware/jj126202(v=vs.85).aspx
+Simple HID Library: http://simplehidlibrary.codeplex.com/
+HID USB Driver / Library for .Net / C#: http://www.florian-leitner.de/index.php/2007/08/03/hid-usb-driver-library/#internal

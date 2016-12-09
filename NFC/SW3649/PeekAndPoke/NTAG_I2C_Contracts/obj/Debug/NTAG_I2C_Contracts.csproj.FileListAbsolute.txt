@@ -1,0 +1,5 @@
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\Peek and Poke 23032016\NTAG_I2C_Contracts\bin\Debug\NTAG_I2C_Defines.dll
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\Peek and Poke 23032016\NTAG_I2C_Contracts\bin\Debug\NTAG_I2C_Defines.pdb
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\Peek and Poke 23032016\NTAG_I2C_Contracts\obj\Debug\NTAG_I2C_Contracts.csprojResolveAssemblyReference.cache
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\Peek and Poke 23032016\NTAG_I2C_Contracts\obj\Debug\NTAG_I2C_Defines.dll
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\Peek and Poke 23032016\NTAG_I2C_Contracts\obj\Debug\NTAG_I2C_Defines.pdb

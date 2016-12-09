@@ -1,0 +1,28 @@
+10:08:11 **** Incremental Build of configuration Release for project NTAG_I2C_Explorer_BootLoader ****
+make -r all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DBOARD_NTAG_I2C_EXPLORER -D__LPC11U37H__ -DHAVE_NTAG_INTERRUPT -DHAVE_STDINT_H -DCORE_M0 -D__MTB_BUFFER_SIZE=2048 -DHAVE_STDBOOL_H -D__USE_LPC -DNDEBUG -D__CODE_RED -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_BootLoader\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\HAL_I2C\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc" -I"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\inc\usbd" -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/main.d" -MT"src/main.o" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+In file included from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\src\inc/rfid_api_full.h:62:0,
+                 from C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_Explorer_BootLoader\inc/global_variables.h:4,
+                 from ../src/main.c:4:
+c:\users\nxp91080\documents\lpcxpresso_7.9.2_493\workspace_ntag_i2c_new\ntag_i2c_api\src\hal_ntag\inc\ntag_driver.h:85:0: warning: "HAVE_NTAG_INTERRUPT" redefined
+ #define HAVE_NTAG_INTERRUPT
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/main.c
+ 
+Building target: NTAG_I2C_Explorer_BootLoader.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\nxp_lpcxpresso_11u24h_board_lib\Release" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\lpc_chip_11uxx_lib\Release" -L"C:\Users\nxp91080\Documents\LPCXpresso_7.9.2_493\workspace_ntag_i2c_new\NTAG_I2C_API\Release" -Xlinker -Map="NTAG_I2C_Explorer_BootLoader.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "NTAG_I2C_Explorer_Release.ld" -o "NTAG_I2C_Explorer_BootLoader.axf"  ./src/HW_functions.o ./src/flash_fw.o ./src/hid_desc.o ./src/hid_i2c.o ./src/hid_main.o ./src/iap_driver.o ./src/main.o   -lNTAG_I2C_API -lnxp_lpcxpresso_11u24h_board_lib -llpc_chip_11uxx_lib
+Finished building target: NTAG_I2C_Explorer_BootLoader.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "NTAG_I2C_Explorer_BootLoader.axf"; # arm-none-eabi-objcopy -v -O binary "NTAG_I2C_Explorer_BootLoader.axf" "NTAG_I2C_Explorer_BootLoader.bin" ; # checksum -p LPC11U24_401 -d "NTAG_I2C_Explorer_BootLoader.bin";
+   text	   data	    bss	    dec	    hex	filename
+   9272	    116	    200	   9588	   2574	NTAG_I2C_Explorer_BootLoader.axf
+ 
+
+10:08:13 Build Finished (took 1s.415ms)
+

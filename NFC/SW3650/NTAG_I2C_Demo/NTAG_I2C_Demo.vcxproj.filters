@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Reader.cpp">
+      <Filter>NFC_Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="RF_Commands.cpp">
+      <Filter>RF_Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="NTAG_I2C_API.cpp">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClCompile>
+    <ClCompile Include="EEPROM.cpp">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="SRAM.cpp">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Registers.cpp">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="NTAG_I2C_Demo.cpp">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClCompile>
+    <ClCompile Include="NTAG_I2C_Logic.cpp">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClCompile>
+    <ClCompile Include="URI.cpp">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardDemo.cpp">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClCompile>
+    <ClCompile Include="NDEFmsg.cpp">
+      <Filter>NTAG_I2C_API\NTAG_I2C_NDEF</Filter>
+    </ClCompile>
+    <ClCompile Include="tagHandler.cpp">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClCompile>
+    <ClCompile Include="NDEFRecord.cpp">
+      <Filter>NTAG_I2C_API\NTAG_I2C_NDEF</Filter>
+    </ClCompile>
+    <ClCompile Include="Password_Form.cpp" />
+    <ClCompile Include="Password.cpp">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TapTagForm.h" />
+    <ClInclude Include="Reader.h">
+      <Filter>NFC_Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="RF_Commands.h">
+      <Filter>RF_Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="NTAG_I2C_API.h">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClInclude>
+    <ClInclude Include="EEPROM.h">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="SRAM.h">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Registers.h">
+      <Filter>NTAG_I2C_API\NTAG_I2C_Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="crc32.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Ntag_I2C.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="NTAG_I2C_Logic.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="URI.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardDemo.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="NTAG_I2C_Glossary.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="NDEFmsg.h">
+      <Filter>NTAG_I2C_API\NTAG_I2C_NDEF</Filter>
+    </ClInclude>
+    <ClInclude Include="tagHandler.h">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClInclude>
+    <ClInclude Include="NTAG_I2C_Demo_GUI.h" />
+    <ClInclude Include="NDEFRecord.h">
+      <Filter>NTAG_I2C_API\NTAG_I2C_NDEF</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI_Utils.h">
+      <Filter>Explorer_Demo_Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Password_Form.h" />
+    <ClInclude Include="Password.h">
+      <Filter>NTAG_I2C_API</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+    <ResourceCompile Include="VS_VERSION_INFO.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico" />
+    <Image Include="icon.ico">
+      <Filter>Explorer_Demo_Application</Filter>
+    </Image>
+    <Image Include="ntagplus.png" />
+    <Image Include="..\..\..\..\..\..\Desktop\NTAG_Plus.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TapTagForm.resx" />
+    <EmbeddedResource Include="NTAG_I2C_Demo_GUI.resX" />
+    <EmbeddedResource Include="Password_Form.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin2.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="NFC_Reader">
+      <UniqueIdentifier>{a863575f-1550-4e65-84a1-9acbc055730d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RF_Commands">
+      <UniqueIdentifier>{7af0e401-a49e-41b6-8c6e-9e4f190a2007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NTAG_I2C_API">
+      <UniqueIdentifier>{6040fe41-2aa7-401f-8447-db9266bd28ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NTAG_I2C_API\NTAG_I2C_Memory">
+      <UniqueIdentifier>{0331e3bd-ba6c-4210-bb73-0951a9bbd612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{5f0a49db-47f0-4ddf-b5b2-868d113b5232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Explorer_Demo_Application">
+      <UniqueIdentifier>{62600240-1717-4ddb-af6f-8b916d3f057e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NTAG_I2C_API\NTAG_I2C_NDEF">
+      <UniqueIdentifier>{2f9eb273-3c8c-497b-b6be-76a93c12eee0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>Explorer_Demo_Application</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
