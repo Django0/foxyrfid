@@ -1,0 +1,9 @@
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\bin\Release\HidLibrary.dll
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\bin\Release\HidLibrary.pdb
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Release\HidLibrary.csprojResolveAssemblyReference.cache
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Release\HidLibrary.dll
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Release\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Release\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Release\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Release\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Release\HidLibrary.pdb

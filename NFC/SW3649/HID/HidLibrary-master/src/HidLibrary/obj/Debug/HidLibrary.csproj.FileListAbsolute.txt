@@ -1,0 +1,19 @@
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.dll
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.pdb
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.csprojResolveAssemblyReference.cache
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.dll
+C:\Users\lpascual-mk\Desktop\Peek and poke buena visualización\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\BitBucket\Repository\Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\Projects\NTAGI2C\collabnet_Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\Projects\NTAGI2C\collabnet_Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.pdb
+C:\Users\Laia Gasparin\Documents\Working_Documents\Projects\NTAGI2C\collabnet_Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Laia Gasparin\Documents\Working_Documents\Projects\NTAGI2C\collabnet_Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.dll
+C:\Users\Laia Gasparin\Documents\Working_Documents\Projects\NTAGI2C\collabnet_Peek&Poke\HID libraries\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.pdb
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\HID\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.dll
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\HID\HidLibrary-master\src\HidLibrary\bin\Debug\HidLibrary.pdb
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\HID\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.csprojResolveAssemblyReference.cache
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\HID\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.dll
+C:\Users\nxa23396\Documents\WORKSPACES\VisualStudio2015\HID\HidLibrary-master\src\HidLibrary\obj\Debug\HidLibrary.pdb
