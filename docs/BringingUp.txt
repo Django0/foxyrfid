@@ -1,0 +1,2 @@
+NFC reader to Arduino
+1) Adafruit PN532 NFC/RFID Controller Shield for Arduino

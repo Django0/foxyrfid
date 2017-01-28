@@ -1,0 +1,336 @@
+/*
+Theme Name: pyo-thematic
+Theme URI: http://purplecowsolutions.com
+Description: thematic child them for provide your own. It nows implements a responsive layout
+Author: Scott Daniels
+Author URI: http://provideyourown.com
+Template: thematic
+Version: 0.2
+Changes:
+0.2 - implemented responsive layout by adding layout.css file
+*/
+
+/* this prevents a white screen flashing on refresh - see http://www.wandzilakwebdesign.com/developers-notes/flash-of-unstyled-content-or-white-flash-on-page-load-wordpress-turns-white/ 
+
+************ NOTE: we don't need this. What we need to do is move our stylesheet before javascript. Moving GoogleAnalytics did the trick 
+
+*/
+/*html {
+  background:url("../images/grass.jpg") repeat scroll 0 0 transparent;
+}*/
+
+
+
+/* Reset browser defaults */
+@import url('../thematic/library/styles/reset.css');
+
+/* Apply a basic layout */
+@import url('../thematic/library/layouts/2c-r-fixed.css');
+
+/* Apply basic image styles */
+@import url('../thematic/library/styles/images.css');
+
+/* Prepare theme for plugins */
+@import url('../thematic/library/styles/default.css');
+
+/* Prepare theme for plugins */
+@import url('../thematic/library/styles/plugins.css');
+
+/* Import styles (simple-cart.css) for e-commerce cart */
+
+
+@import url('styles/defaults.css');
+
+@import url('styles/header.css');
+
+@import url('styles/sidebar.css');
+
+@import url('styles/footer.css');
+
+@import url('styles/foxyshop.css');
+
+@import url('styles/layout.css'); /* implements a responsive layout */
+
+.form-section label {
+  font-weight: bold;
+}
+
+.operands {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.entry-content {
+  padding:0;
+}
+
+
+.entry-meta  {
+  font-size: 1.0em;
+  line-height: 1.0em;
+  padding: 0 0 1.0em;
+}
+
+/******************************* content headlines ****************************/
+/* from default.css (in thematic) */
+/*
+.entry-title {
+font-family:Arial,sans-serif;
+font-size:26px;
+font-weight:bold;
+line-height:26px;
+padding:0 0 7px;
+}
+
+.entry-content h1,
+.entry-content h2 {
+    font-family:Arial,sans-serif;
+    font-size:19px;
+    font-weight:bold;
+    padding:28px 0 14px 0;
+}
+.entry-content h3 {
+    font-size:17px;
+    font-style:italic;
+    padding:28px 0 14px 0;
+}
+.entry-content h4 {
+    font-size:11px;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+}
+
+*/
+h1.entry-title {
+  /*display:none;*/
+  font-family:"Calligraph 421 BT","Marker Felt","Comic Sans MS";
+  font-size: 1.9em;
+  font-weight:bold;
+  line-height: 1.0em;
+  margin:0;
+  overflow:hidden;
+  padding: 0 0 0.25em;
+}
+
+
+
+
+
+.entry-content .amazon_tile {
+  float: left;
+  padding-right: 20px;
+}
+
+.amazon_reviews_widget .amazon_tile {
+  float: left;
+  width: 118px;
+}
+
+.amazon_reviews_widget .amazon_tile iframe {
+
+}
+
+.amazon_reviews_widget .amazon_tile a {
+  display: block; /* make text align work */
+  text-align: center;
+}
+
+
+p.poll {
+  margin-bottom: 0;
+}
+
+/************************** content *******************************************/
+
+.page-title {
+  font-size:24px;
+  line-height:18px;
+  padding:0;
+}
+
+.archive-meta { /* the category content (description) */
+  padding-bottom: 2em;
+}
+
+.archive-meta p {
+  padding-bottom: 1em;
+}
+
+/* float featured images & thumbnails on left */
+.entry-thumb {
+  float: left;
+}
+
+/* the featured thumbnail (in listings) */
+.entry-content img {
+  padding: 0;
+  margin: 0;
+}
+
+.entry-content img.alignleft {
+  margin-right: 10px;
+}
+
+.entry-content .wp-post-image {
+  border: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+/* the featured image & its caption */
+
+.wp-caption {
+/*  float: left; alignright/alignleft handles this is images.css */
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entry-content .featured-image .wp-post-image {
+  border: none;
+  margin: 0;
+  margin-right: 15px;
+}
+
+.wp-caption p.wp-caption-text {
+  margin-right: 15px;
+}
+
+/********************* article series table of contents **********************/
+.article-series-wrapper { /* the box */
+  max-width: 300px;
+  float: left;
+  border: 2px solid maroon;
+  background-color: lightGoldenrodYellow;
+  margin-right: 1em;
+}
+
+.article-series-title { /* the headline */
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+.article-series-wrapper ol {
+  margin-left: 1em;
+}
+
+.article-series-wrapper .item-soon {
+  font-style: italic;
+  font-size: 75%;
+}
+
+/********************** blockquote *******************************************/
+blockquote {
+  padding-left: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/********************** sidebar (aside panel) *******************************************/
+.sidebar {
+  float: right;
+  width: 175px;
+  margin-left: 1em;
+  border: 2px solid green;
+}
+
+.sidebar-title {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.5em;
+  border-bottom: 2px solid green;
+  font-weight: bold;
+}
+
+.sidebar-content {
+  padding: 0.5em;
+}
+
+/************************* code **********************************************/
+pre {
+    background-color: white;
+    border: 1px solid #C9D2D8;
+    color: #2E8B57;
+/*    display: block; */
+    font: 0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono;
+    height: auto;
+    margin: 2px 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+    /* interferes with better WP syntax highlighting plugin - max-height: 200px; */
+    overflow: auto;
+    padding: 5px;
+    /* this messes up the pre; don't know why it was here - white-space: normal; */
+}
+
+code {
+  font: 0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono;
+}
+
+/* class used by BWP syntax plugin for highlighted line */
+.ln-xtra {
+    background-color: lightgreen;
+}
+
+
+
+/*****************************************
+* styles for twitter widget pro plugin 
+******************************************/
+
+.widget_twitter div {
+	padding:0;
+}
+
+.widget_twitter ul li {
+	margin-bottom:5px;
+}
+
+.widget_twitter .follow-button,
+.widget_twitter .xavisys-link {
+	margin:0 10px 10px 25px;
+}
+
+.widget_twitter .entry-meta {
+	display:block;
+	font-size:80%;
+}
+
+.widget_twitter .intent-meta a {
+	background: url(../../uploads/everything-spritev2.png); /** from Twitter ressources */
+	display: inline-block;
+	height: 16px;
+	text-indent: -9999px;
+	width: 16px;
+}
+.widget_twitter .intent-meta a.in-reply-to {
+	background-position: 0 center;
+}
+.widget_twitter .intent-meta a:hover.in-reply-to {
+	background-position: -16px center;
+}
+.widget_twitter .intent-meta a.favorite {
+	background-position: -32px center;
+}
+.widget_twitter .intent-meta a:hover.favorite {
+	background-position: -48px center;
+}
+.widget_twitter .intent-meta a.retweet {
+	background-position: -80px center;
+}
+.widget_twitter .intent-meta a:hover.retweet {
+	background-position: -96px center;
+}
+
+.entry-content {
+  padding: 0;
+  color: black;
+}

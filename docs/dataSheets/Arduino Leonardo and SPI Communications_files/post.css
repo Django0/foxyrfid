@@ -1,0 +1,339 @@
+.asg_candy {
+    position: relative;
+    margin: 4px 0 0 0;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+}
+.asg_candy:empty {
+    display: none;
+}
+
+.asg_candy_button {
+    display: block;
+    margin: 0 0 1em 0;
+    padding: 0;
+    border: none
+}
+
+/* Button text style: */
+.asg_candy_text {
+    position: relative;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 50%;
+    line-height: 1.2em;
+    text-align: center;
+    vertical-align: top;
+    font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    cursor: inherit;
+    text-decoration: none;
+}
+
+.asg_candy_text:hover {
+    text-decoration: underline;
+}
+
+.asg_candy img {
+    display: block !important;
+    float: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: none !important;
+    box-shadow: none !important;
+}
+
+a.asg_candy_link:link,
+a.asg_candy_link:hover,
+a.asg_candy_link:active,
+a.asg_candy_link:visited {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 1em;
+    border: none;
+}
+
+.asg_candy_align-left,
+.asg_candy_position-bottom {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.asg_clearfix {
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.asg_candy_align-right {
+    float: right;
+    margin-left: 1.5em;
+}
+
+.asg_product_image {
+    padding-bottom: 0.5em;
+}
+
+.asg_price_list_value {
+    text-decoration: line-through;
+}
+
+.asg_price_container {
+    margin-bottom: 1em;
+}
+
+.asg_price_value, .asg_price_offer_value {
+    color: #990000;
+}
+
+.asg_price_timestamp_detail {
+    position: relative;
+}
+
+.asg_price_timestamp_detail-label {
+    border-bottom: 1px dashed;
+}
+
+.asg_price_timestamp_detail-text {
+    display: none;
+    position: fixed;
+    margin-top: 1em;
+    background-color: white;
+    font-size: 75%;
+    line-height: 1.2em;
+    width: 400px;
+    padding: 0.75em;
+    border: 1px solid #969696;
+    border-radius: 10px;
+    text-align: justify;
+    box-shadow: 2px 5px 5px 2px #585858;
+    box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.5); /* for RGBA-enabled browsers*/
+    z-index: 100000;
+}
+
+.asg_availability_unavailable {
+    color: #990000;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+.asg_star_rating {
+    width: 65px;
+    height: 12px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    background: transparent url(images/sprite-stars.png) no-repeat;
+    vertical-align: baseline;
+}
+
+.asg_star_rating-0_5 {
+    background-position: -52px -20px;
+}
+.asg_star_rating-1_0 {
+    background-position: -65px -0px;
+}
+.asg_star_rating-1_0 {
+    background-position: -52px -0px;
+}
+.asg_star_rating-1_5 {
+    background-position: -39px -20px;
+}
+.asg_star_rating-2_0 {
+    background-position: -39px -0px;
+}
+.asg_star_rating-2_5 {
+    background-position: -26px -20px;
+}
+.asg_star_rating-3_0 {
+    background-position: -26px -0px;
+}
+.asg_star_rating-3_5 {
+    background-position: -13px -20px;
+}
+.asg_star_rating-4_0 {
+    background-position: -13px -0px;
+}
+.asg_star_rating-4_5 {
+    background-position: 0px -20px;
+}
+.asg_star_rating-5_0 {
+    background-position: 0px 0px;
+}
+
+.asg_details_title {
+    clear: left;
+}
+
+.asg_after_details {
+    margin-top: 1em;
+}
+
+.asg_review_helpful {
+    padding: 0 0 0.3em;
+}
+.asg_review_author {
+    padding: 0.5em 0 0.7em;
+}
+
+.asg_price_notice {
+    font-style: italic;
+}
+.asg_reviews_iframe {
+    width: 100%;
+    height: 1000px;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+}
+
+/**
+* Youtube playlist
+*/
+
+.asg-vid-container {
+    position: relative;
+    padding-bottom: 52%;
+    padding-top: 30px;
+    height: 0;
+}
+
+/* Workaround for themes wrapping our player */
+.asg-vid-container > div {
+    padding-bottom: 52% !important;
+    padding-top: 0 !important;
+    position: static !important;
+}
+
+.asg-vid-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.asg-vid-list-container {
+    width: 92%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left:4%;
+    padding-bottom: 20px;
+}
+
+ul.asg-vid-list {
+    position: relative;
+    top:0;
+    left: 0;
+    list-style: none;
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+ul.asg-vid-list li.asg-vid-item {
+    display: inline-block;
+    width: 148px;
+    margin: 0;
+    padding: 10px;
+    vertical-align: top;
+    cursor: pointer;
+    white-space: normal;
+}
+
+ul.asg-vid-list li.asg-vid-item:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.asg-thumb {
+    overflow:hidden;
+    height: 84px;
+}
+
+.asg-thumb img {
+    width: 100%;
+    position: relative;
+    top: -13px;
+}
+
+.asg-vid-item .asg-desc {
+    color: #21A1D2;
+    font-size: 15px;
+    line-height: 1.2em;
+    max-height: 3.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-top:5px;
+    overflow: hidden;
+}
+
+
+.asg-arrows {
+    position:relative;
+    width: 100%;
+}
+
+.asg-arrows .asg-arrow:hover {
+    background: #CC181E;
+}
+
+.asg-arrows .asg-arrow {
+    top: -130px;
+}
+
+.asg-arrow-left {
+    color: #fff;
+    position: absolute;
+    background: #777;
+    padding: 15px;
+    left: 0;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.asg-arrow-right {
+    color: #fff;
+    position: absolute;
+    background: #777;
+    padding: 15px;
+    right: 0;
+    z-index:100;
+    cursor: pointer;
+}
+
+
+@media (max-width: 624px) {
+    .asg-arrows {
+        position:relative;
+        margin: 0 auto;
+        width:96px;
+    }
+    .asg-arrow-left {
+        left: 0;
+        top: -20px;
+    }
+
+    .asg-arrow-right {
+        right: 0;
+        top: -20px;
+    }
+}
+
+.asg-no-videos {
+    text-align: center;
+    margin-bottom: 1em;
+    border: 1px solid lightgray;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: lightyellow;
+}
