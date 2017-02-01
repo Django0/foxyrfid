@@ -34,18 +34,14 @@
 
 */
 /**************************************************************************/
+#define PUNCHER_ID  (0x09)
+
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
-#define UART_ENABLE 1
-#if UART_ENABLE
-#include <SoftwareSerial.h>
-SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
-#endif
 
 #include <SPI.h>
 #include <Adafruit_PN532.h>
-
 
 // If using the breakout or shield with I2C, define just the pins connected
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
@@ -136,11 +132,6 @@ void setup(void) {
   // Initialize the RTC
   setupRTC();
 
-#if UART_ENABLE
-  // Initialize the serial port to the Fox
-  foxSerial.begin(4800);
-#endif
-
   // Initialize the NFC
   Serial.println("Hello!");
   nfc.begin();
@@ -163,8 +154,10 @@ void setup(void) {
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 void loop(void) {
+  uint8_t keya[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+
   uint8_t success;
-  uint8_t uid[32];  // Buffer to store the returned UID
+  uint8_t uid[16];  // Buffer to store the returned UID
   uint8_t uidLength;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
 
   // Wait for an ISO14443A type cards (Mifare, etc.).  When one is found
@@ -188,7 +181,6 @@ void loop(void) {
       // Now we need to try to authenticate it for read/write access
       // Try with the factory default KeyA: 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF
       Serial.println("Trying to authenticate block 4 with default KEYA value");
-      uint8_t keya[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
 
       // Start with block 4 (the first block of sector 1) since sector 0
       // contains the manufacturer data and it's probably better just
@@ -216,17 +208,6 @@ void loop(void) {
           Serial.println("");
 
           RTCReadOut();
-#if UART_ENABLE
-          delay(4000);
-          byte rx_byte = 0x09;
-          foxSerial.write(rx_byte);
-          delay(1000);
-          if (foxSerial.available()) {
-            // get the byte from the software serial port
-            rx_byte = foxSerial.read();
-            foxSerial.write(rx_byte);
-          }
-#endif
           // Wait a bit before reading the card again
           delay(1000);
         }
@@ -250,48 +231,38 @@ void loop(void) {
       Serial.println("Reading page 4");
 #define SIZE_OF_DATA  (4)
       uint8_t data[SIZE_OF_DATA];
-      success = nfc.mifareultralight_ReadPage (4, data);
-      if (success)
+      for (uint8_t iPage = 0; iPage < 16; iPage++)
       {
-        // Data seems to have been read ... spit it out
-        nfc.PrintHexChar(data, 4);
-        uint8_t puncherID = data[0];
-        uint8_t indexToWrite = data[1];
-
-#if UART_ENABLE
-        delay(1000);
-#define NUM_BYTES_FROM_FOX 5
-        uint8_t CRCCheck = 0;
-        uint8_t rxByte[NUM_BYTES_FROM_FOX];
-        foxSerial.write(puncherID);
-        
-        //delay(1000);  // Tilak: For testing: Remove after testing with Fox
-        for (uint8_t iByteFox = 0; iByteFox < NUM_BYTES_FROM_FOX; iByteFox++)
+        //success = nfc.mifareclassic_AuthenticateBlock(uid, uidLength, 4 + iPage, 0, keya);
+        if (success)
         {
-          if (foxSerial.available()) {
-            // get the byte from the software serial port
-            rxByte[iByteFox] = foxSerial.read();
+          success = nfc.mifareultralight_ReadPage (4 + iPage, data);
+          if (success)
+          {
+            // Data seems to have been read ... spit it out
+            nfc.PrintHexChar(data, SIZE_OF_DATA);
+            Serial.println("");
+            uint8_t writePuncherID[SIZE_OF_DATA];
+            memset(writePuncherID, 0xFF, SIZE_OF_DATA * sizeof(uint8_t));
+
+            if (iPage == 0)
+            {
+              uint8_t indexToWriteFoxData = 0x02;
+              writePuncherID[0] = PUNCHER_ID;
+              writePuncherID[1] = indexToWriteFoxData;
+            }
+            success = nfc.mifareultralight_WritePage (4 + iPage, writePuncherID);
           }
         }
-        Serial.println(rxByte[0],HEX);
-        Serial.println(rxByte[1],HEX);
-        Serial.println(rxByte[2],HEX);
-        Serial.println(rxByte[3],HEX);
-        Serial.println(rxByte[4],HEX);
-        if ((rxByte[0] + rxByte[1]  + rxByte[2]  + rxByte[3]) == rxByte[4])
+        else
         {
-          // Successful in talking to fox
-          //  uint8_t mifareultralight_WritePage (uint8_t page, uint8_t * data);
-          RTCReadOut();
+          Serial.println("Ooops ... unable to read the requested page!?");
+          break;
         }
-#endif
-        // Wait a bit before reading the card again
-        delay(1000);
       }
-      else
-      {
-        Serial.println("Ooops ... unable to read the requested page!?");
-      }
+      RTCReadOut();
+      // Wait a bit before reading the card again
+      delay(1000);
     }
   }
 }
