@@ -168,6 +168,16 @@ void setup(void) {
   delay(500);
   digitalWrite(LED_PIN, LOW);
 }
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+void ShowNotification(void)
+{
+  tone(BUZZ_PIN, 440);
+  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                    // Wait a bit before reading the card again
+  noTone(BUZZ_PIN);
+  digitalWrite(LED_PIN, LOW);
+}
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 void loop(void) {
@@ -235,8 +245,8 @@ void loop(void) {
             foxSerial.write(rx_byte);
           }
 #endif
-          // Wait a bit before reading the card again
-          delay(1000);
+          ShowNotification();
+          RTCReadOut();
         }
         else
         {
@@ -270,9 +280,9 @@ void loop(void) {
         delay(1000);
 #define NUM_BYTES_FROM_FOX 5
         uint8_t CRCCheck = 0;
-        uint8_t rxByte[NUM_BYTES_FROM_FOX] ={0};
+        uint8_t rxByte[NUM_BYTES_FROM_FOX] = {0};
         foxSerial.write(puncherID);
-        
+
         //delay(1000);  // Tilak: For testing: Remove after testing with Fox
         for (uint8_t iByteFox = 0; iByteFox < NUM_BYTES_FROM_FOX; iByteFox++)
         {
@@ -281,23 +291,18 @@ void loop(void) {
             rxByte[iByteFox] = foxSerial.read();
           }
         }
-        Serial.println(rxByte[0],HEX);
-        Serial.println(rxByte[1],HEX);
-        Serial.println(rxByte[2],HEX);
-        Serial.println(rxByte[3],HEX);
-        Serial.println(rxByte[4],HEX);
+        Serial.println(rxByte[0], HEX);
+        Serial.println(rxByte[1], HEX);
+        Serial.println(rxByte[2], HEX);
+        Serial.println(rxByte[3], HEX);
+        Serial.println(rxByte[4], HEX);
         if ((rxByte[0] + rxByte[1]  + rxByte[2]  + rxByte[3]) == rxByte[4])
         {
           // Successful in talking to fox
           //  uint8_t mifareultralight_WritePage (uint8_t page, uint8_t * data);
         }
 #endif
-        tone(BUZZ_PIN, 440);
-        digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-        // Wait a bit before reading the card again
-        delay(500);
-        noTone(BUZZ_PIN);
-        digitalWrite(LED_PIN, LOW);
+        ShowNotification();
         RTCReadOut();
       }
       else
@@ -308,7 +313,6 @@ void loop(void) {
   }
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 #define countof(a) (sizeof(a) / sizeof(a[0]))
 
 void printDateTime(const RtcDateTime& dt)
