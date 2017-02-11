@@ -37,7 +37,7 @@
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
-#define UART_ENABLE 1
+#define UART_ENABLE 0
 #if UART_ENABLE
 #include <SoftwareSerial.h>
 SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
@@ -53,6 +53,10 @@ SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
 
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
+
+#define BUZZ_PIN   (3)
+#define LED_PIN    (4)
+
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setupRTC(void) {
@@ -159,6 +163,10 @@ void setup(void) {
   nfc.SAMConfig();
 
   Serial.println("Waiting for an ISO14443A Card ...");
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);
+  digitalWrite(LED_PIN, LOW);
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -262,7 +270,7 @@ void loop(void) {
         delay(1000);
 #define NUM_BYTES_FROM_FOX 5
         uint8_t CRCCheck = 0;
-        uint8_t rxByte[NUM_BYTES_FROM_FOX];
+        uint8_t rxByte[NUM_BYTES_FROM_FOX] ={0};
         foxSerial.write(puncherID);
         
         //delay(1000);  // Tilak: For testing: Remove after testing with Fox
@@ -282,11 +290,15 @@ void loop(void) {
         {
           // Successful in talking to fox
           //  uint8_t mifareultralight_WritePage (uint8_t page, uint8_t * data);
-          RTCReadOut();
         }
 #endif
+        tone(BUZZ_PIN, 440);
+        digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
         // Wait a bit before reading the card again
-        delay(1000);
+        delay(500);
+        noTone(BUZZ_PIN);
+        digitalWrite(LED_PIN, LOW);
+        RTCReadOut();
       }
       else
       {
