@@ -34,8 +34,9 @@
 
 */
 /**************************************************************************/
-#define PUNCHER_ID  (0x09)
-
+#define PUNCHER_ID  (0x01)
+uint8_t indexToWriteFoxData = 0x02;
+/**************************************************************************/
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
@@ -49,6 +50,9 @@ RtcDS3231<TwoWire> Rtc(Wire);
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
 
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
+
+#define BUZZ_PIN   (3)
+#define LED_PIN    (4)
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setupRTC(void) {
@@ -226,6 +230,8 @@ void loop(void) {
     {
       // We probably have a Mifare Ultralight card ...
       Serial.println("Seems to be a Mifare Ultralight tag (7 byte UID)");
+      Serial.println("Trying to authenticate block 4 with default KEYA value");
+      success = nfc.mifareclassic_AuthenticateBlock(uid, uidLength, 4 + 0, 0, keya);
 
       // Try to read the first general-purpose user page (#4)
       Serial.println("Reading page 4");
@@ -247,7 +253,6 @@ void loop(void) {
 
             if (iPage == 0)
             {
-              uint8_t indexToWriteFoxData = 0x02;
               writePuncherID[0] = PUNCHER_ID;
               writePuncherID[1] = indexToWriteFoxData;
             }
@@ -260,11 +265,31 @@ void loop(void) {
           break;
         }
       }
+      success = nfc.mifareultralight_ReadPage (4 + 0, data);
+      if (success)
+      {
+        // Data seems to have been read ... spit it out
+        nfc.PrintHexChar(data, SIZE_OF_DATA);
+        if ((PUNCHER_ID == data[0]) && (indexToWriteFoxData == data[1]))
+        {
+          // Successfully cleared factor set the puncher
+          ShowNotification();
+        }
+      }
       RTCReadOut();
       // Wait a bit before reading the card again
       delay(1000);
     }
   }
+}
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+void ShowNotification(void)
+{
+  tone(BUZZ_PIN, 440);
+  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                    // Wait a bit before reading the card again
+  noTone(BUZZ_PIN);
+  digitalWrite(LED_PIN, LOW);
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

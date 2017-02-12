@@ -37,7 +37,7 @@
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
-#define UART_ENABLE 0
+#define UART_ENABLE 1
 #if UART_ENABLE
 #include <SoftwareSerial.h>
 SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
@@ -267,14 +267,14 @@ void loop(void) {
       // Try to read the first general-purpose user page (#4)
       Serial.println("Reading page 4");
 #define SIZE_OF_DATA  (4)
-      uint8_t data[SIZE_OF_DATA];
+      uint8_t data[SIZE_OF_DATA] = {0};
       success = nfc.mifareultralight_ReadPage (4, data);
       if (success)
       {
         // Data seems to have been read ... spit it out
         nfc.PrintHexChar(data, 4);
         uint8_t puncherID = data[0];
-        uint8_t indexToWrite = data[1];
+        uint8_t indexToWriteFoxData = data[1];
 
 #if UART_ENABLE
         delay(1000);
@@ -282,8 +282,8 @@ void loop(void) {
         uint8_t CRCCheck = 0;
         uint8_t rxByte[NUM_BYTES_FROM_FOX] = {0};
         foxSerial.write(puncherID);
+        foxSerial.write(puncherID);
 
-        //delay(1000);  // Tilak: For testing: Remove after testing with Fox
         for (uint8_t iByteFox = 0; iByteFox < NUM_BYTES_FROM_FOX; iByteFox++)
         {
           if (foxSerial.available()) {
@@ -299,11 +299,22 @@ void loop(void) {
         if ((rxByte[0] + rxByte[1]  + rxByte[2]  + rxByte[3]) == rxByte[4])
         {
           // Successful in talking to fox
-          //  uint8_t mifareultralight_WritePage (uint8_t page, uint8_t * data);
+          data[1] += 1;
+          nfc.mifareultralight_WritePage (4 + 0, data);
+          success = nfc.mifareultralight_ReadPage (4 + 0, data);
+          if (success)
+          {
+            // Data seems to have been read ... spit it out
+            nfc.PrintHexChar(data, SIZE_OF_DATA);
+            if ((puncherID == data[0]) && ((indexToWriteFoxData+1) == data[1]))
+            {
+              // Successfully cleared factor set the puncher
+              ShowNotification();
+            }
+          }
+          RTCReadOut();
         }
 #endif
-        ShowNotification();
-        RTCReadOut();
       }
       else
       {
