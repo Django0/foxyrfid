@@ -296,17 +296,31 @@ void loop(void) {
         Serial.println(rxByte[2], HEX);
         Serial.println(rxByte[3], HEX);
         Serial.println(rxByte[4], HEX);
-        if ((rxByte[0] + rxByte[1]  + rxByte[2]  + rxByte[3]) == rxByte[4])
+
+        if ((rxByte[0] == 0) && (rxByte[0] == rxByte[1]) && (rxByte[0] == rxByte[2]) && (rxByte[0] == rxByte[3]))
+        {
+          // When there is NO response from FOX or when there is NO FOX connected.
+        }
+        else if (((rxByte[0] + rxByte[1]  + rxByte[2]  + rxByte[3]) == rxByte[4])
+                 || (rxByte[0] == 0x7D) && (rxByte[1] == 0x22) && (rxByte[2] == 0xE2))
         {
           // Successful in talking to fox
+          foxSerial.write(0x6F);  // To tell the fox that the puncher was registered
+
+          nfc.mifareultralight_WritePage (4 + data[1], rxByte);
           data[1] += 1;
+          if (data[1] > 35)
+          {
+            data[1] = 1;
+          }
           nfc.mifareultralight_WritePage (4 + 0, data);
+
           success = nfc.mifareultralight_ReadPage (4 + 0, data);
           if (success)
           {
             // Data seems to have been read ... spit it out
             nfc.PrintHexChar(data, SIZE_OF_DATA);
-            if ((puncherID == data[0]) && ((indexToWriteFoxData+1) == data[1]))
+            if ((puncherID == data[0]) && ((indexToWriteFoxData + 1) == data[1]))
             {
               // Successfully cleared factor set the puncher
               ShowNotification();
@@ -314,6 +328,7 @@ void loop(void) {
           }
           RTCReadOut();
         }
+        delay(1000);
 #endif
       }
       else

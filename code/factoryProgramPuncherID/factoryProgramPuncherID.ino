@@ -34,8 +34,8 @@
 
 */
 /**************************************************************************/
-#define PUNCHER_ID  (0x01)
-uint8_t indexToWriteFoxData = 0x02;
+#define PUNCHER_ID  (0x06)
+uint8_t indexToWriteFoxData = 0x01;
 /**************************************************************************/
 #include <Wire.h>
 #include <RtcDS3231.h>
@@ -237,7 +237,7 @@ void loop(void) {
       Serial.println("Reading page 4");
 #define SIZE_OF_DATA  (4)
       uint8_t data[SIZE_OF_DATA];
-      for (uint8_t iPage = 0; iPage < 16; iPage++)
+      for (uint8_t iPage = 0; iPage < 36; iPage++)
       {
         //success = nfc.mifareclassic_AuthenticateBlock(uid, uidLength, 4 + iPage, 0, keya);
         if (success)
@@ -249,7 +249,7 @@ void loop(void) {
             nfc.PrintHexChar(data, SIZE_OF_DATA);
             Serial.println("");
             uint8_t writePuncherID[SIZE_OF_DATA];
-            memset(writePuncherID, 0xFF, SIZE_OF_DATA * sizeof(uint8_t));
+            memset(writePuncherID, 0x0, SIZE_OF_DATA * sizeof(uint8_t));
 
             if (iPage == 0)
             {
