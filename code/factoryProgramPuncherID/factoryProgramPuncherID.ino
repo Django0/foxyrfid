@@ -34,7 +34,7 @@
 
 */
 /**************************************************************************/
-#define PUNCHER_ID  (0x06)
+#define PUNCHER_ID  (0x09)
 uint8_t indexToWriteFoxData = 0x01;
 /**************************************************************************/
 #include <Wire.h>
@@ -154,6 +154,8 @@ void setup(void) {
   nfc.SAMConfig();
 
   Serial.println("Waiting for an ISO14443A Card ...");
+  pinMode(LED_PIN, OUTPUT);
+  ShowNotification();
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
