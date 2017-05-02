@@ -51,7 +51,7 @@ SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
 #define PN532_IRQ   (2)
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
-
+// Nano: I2C: A4 (SDA) and A5 (SCL)
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
 #define BUZZ_PIN   (3)
