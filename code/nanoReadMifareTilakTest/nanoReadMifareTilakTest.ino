@@ -37,7 +37,7 @@
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
-#define UART_ENABLE 1
+#define UART_ENABLE 0
 #if UART_ENABLE
 #include <SoftwareSerial.h>
 SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
@@ -51,6 +51,7 @@ SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
 #define PN532_IRQ   (2)
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
+#define PN532_RSTPDN (8)  // HOLD RESET LOW until the fox is connected
 // I2C: A4 (SDA) and A5 (SCL)
 
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
@@ -58,6 +59,7 @@ Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 #define BUZZ_PIN   (5)
 #define LED_PIN    (4)
 
+const byte ADCMeasPWMPin = A0; // Pin to sample the ADC
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setupRTC(void) {
@@ -135,6 +137,15 @@ void RTCReadOut() {
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+void ShowNotification(void)
+{
+  tone(BUZZ_PIN, 440);
+  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                    // Wait a bit before reading the card again
+  noTone(BUZZ_PIN);
+  digitalWrite(LED_PIN, LOW);
+}
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setup(void) {
   Serial.begin(9600);
 
@@ -148,6 +159,10 @@ void setup(void) {
 
   // Initialize the NFC
   Serial.println("Hello!");
+  pinMode(PN532_RESET, OUTPUT);
+
+//  delay(5000);
+  //digitalWrite(PN532_RSTPDN, HIGH);
   nfc.begin();
 
   uint32_t versiondata = nfc.getFirmwareVersion();
@@ -168,19 +183,10 @@ void setup(void) {
   digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);
   digitalWrite(LED_PIN, LOW);
-}
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-void ShowNotification(void)
-{
-  tone(BUZZ_PIN, 440);
-  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(500);                    // Wait a bit before reading the card again
-  noTone(BUZZ_PIN);
-  digitalWrite(LED_PIN, LOW);
+    digitalWrite(PN532_RSTPDN, LOW);     // RESET the NFC PN532
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 void loop(void) {
   uint8_t success;
   uint8_t uid[32];  // Buffer to store the returned UID
