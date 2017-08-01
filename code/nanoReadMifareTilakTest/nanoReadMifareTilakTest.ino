@@ -34,6 +34,7 @@
 
 */
 /**************************************************************************/
+#include <avr/sleep.h>
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
@@ -148,6 +149,26 @@ void ShowNotification(void)
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setup(void) {
   Serial.begin(9600);
+#if 1
+  // disable ADC
+  ADCSRA = 0;
+  //ADCSRB = 0;
+  //PRR = 0xDD; // TODO: find out which bits to set and unset.
+
+  Serial.println(PRR, HEX);
+
+  // turn off brown-out enable in software
+  MCUCR = bit (BODS) | bit (BODSE);
+  MCUCR = bit (BODS);
+  Serial.println(MCUCR, HEX);
+
+  set_sleep_mode (SLEEP_MODE_IDLE);
+  noInterrupts ();           // timed sequence follows
+  sleep_enable();
+
+  interrupts ();             // guarantees next instruction executed
+  sleep_cpu ();              // sleep within 3 clock cycles of above
+#endif
 
   // Initialize the RTC
   setupRTC();
@@ -161,7 +182,7 @@ void setup(void) {
   Serial.println("Hello!");
   pinMode(PN532_RESET, OUTPUT);
 
-//  delay(5000);
+  //  delay(5000);
   //digitalWrite(PN532_RSTPDN, HIGH);
   nfc.begin();
 
@@ -184,7 +205,8 @@ void setup(void) {
   delay(500);
   digitalWrite(LED_PIN, LOW);
 
-    digitalWrite(PN532_RSTPDN, LOW);     // RESET the NFC PN532
+  digitalWrite(PN532_RSTPDN, LOW);     // RESET the NFC PN532
+
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void loop(void) {
