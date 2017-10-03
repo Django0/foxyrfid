@@ -60,7 +60,35 @@ Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 #define BUZZ_PIN   (5)
 #define LED_PIN    (4)
 
-const byte ADCMeasPWMPin = A0; // Pin to sample the ADC
+const int pinDetectPWM = A0; // Pin to sample the ADC
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bool detectPWMLowSignalFromFox() {
+  const int MAX_MEAS_IN_1_CYCLE = 3;
+  while (1) {
+    int valPWM[MAX_MEAS_IN_1_CYCLE] = {0};
+    uint8_t sampledPWM = 0;
+    Serial.println("New measurement");
+    for (uint8_t i = 0; i < MAX_MEAS_IN_1_CYCLE; i++) { // 4 measurements
+      pinMode(pinDetectPWM, INPUT);
+      valPWM[i] = analogRead(pinDetectPWM);
+      //Calculate and print result
+      if ( valPWM[i] < 50) {
+        sampledPWM += 1;  // Detect if all values are less than 50 or low
+      }
+      Serial.println(valPWM[i]);
+      delay(666);
+    }
+    if (sampledPWM == MAX_MEAS_IN_1_CYCLE) {
+      // Low signal detected, time to boot up
+      Serial.println("BootUp");
+      return (true);
+    } else {
+      // Sleep for 30 seconds, so that no-hunter can reach a fox within 30 seconds
+      delay(30000);
+    }
+  }
+}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setupRTC(void) {
@@ -148,27 +176,9 @@ void ShowNotification(void)
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setup(void) {
-  Serial.begin(9600);
-#if 1
-  // disable ADC
-  ADCSRA = 0;
-  //ADCSRB = 0;
-  //PRR = 0xDD; // TODO: find out which bits to set and unset.
+  Serial.begin(4800);
 
-  Serial.println(PRR, HEX);
-
-  // turn off brown-out enable in software
-  MCUCR = bit (BODS) | bit (BODSE);
-  MCUCR = bit (BODS);
-  Serial.println(MCUCR, HEX);
-
-  set_sleep_mode (SLEEP_MODE_IDLE);
-  noInterrupts ();           // timed sequence follows
-  sleep_enable();
-
-  interrupts ();             // guarantees next instruction executed
-  sleep_cpu ();              // sleep within 3 clock cycles of above
-#endif
+  detectPWMLowSignalFromFox();
 
   // Initialize the RTC
   setupRTC();
