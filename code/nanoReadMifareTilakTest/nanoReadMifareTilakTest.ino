@@ -34,10 +34,11 @@
 
 */
 /**************************************************************************/
+#include <avr/sleep.h>
 #include <Wire.h>
 #include <RtcDS3231.h>
 RtcDS3231<TwoWire> Rtc(Wire);
-#define UART_ENABLE 1
+#define UART_ENABLE 0
 #if UART_ENABLE
 #include <SoftwareSerial.h>
 SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
@@ -52,11 +53,42 @@ SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
 #define PN532_IRQ   (2)
 #define PN532_RESET (3)  // Not connected by default on the NFC Shield
 // Nano: I2C: A4 (SDA) and A5 (SCL)
+#define PN532_RSTPDN (8)  // HOLD RESET LOW until the fox is connected
+
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
-#define BUZZ_PIN   (3)
-#define LED_PIN    (A1)
+#define BUZZ_PIN   (5)
+#define LED_PIN    (4)
 
+const int pinDetectPWM = A0; // Pin to sample the ADC
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bool detectPWMLowSignalFromFox() {
+  const int MAX_MEAS_IN_1_CYCLE = 3;
+  while (1) {
+    int valPWM[MAX_MEAS_IN_1_CYCLE] = {0};
+    uint8_t sampledPWM = 0;
+    Serial.println("New measurement");
+    for (uint8_t i = 0; i < MAX_MEAS_IN_1_CYCLE; i++) { // 4 measurements
+      pinMode(pinDetectPWM, INPUT);
+      valPWM[i] = analogRead(pinDetectPWM);
+      //Calculate and print result
+      if ( valPWM[i] < 50) {
+        sampledPWM += 1;  // Detect if all values are less than 50 or low
+      }
+      Serial.println(valPWM[i]);
+      delay(666);
+    }
+    if (sampledPWM == MAX_MEAS_IN_1_CYCLE) {
+      // Low signal detected, time to boot up
+      Serial.println("BootUp");
+      return (true);
+    } else {
+      // Sleep for 30 seconds, so that no-hunter can reach a fox within 30 seconds
+      delay(30000);
+    }
+  }
+}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setupRTC(void) {
@@ -134,8 +166,19 @@ void RTCReadOut() {
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+void ShowNotification(void)
+{
+  tone(BUZZ_PIN, 440);
+  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);                    // Wait a bit before reading the card again
+  noTone(BUZZ_PIN);
+  digitalWrite(LED_PIN, LOW);
+}
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void setup(void) {
-  Serial.begin(9600);
+  Serial.begin(4800);
+
+  detectPWMLowSignalFromFox();
 
   // Initialize the RTC
   setupRTC();
@@ -147,6 +190,10 @@ void setup(void) {
 
   // Initialize the NFC
   Serial.println("Hello!");
+  pinMode(PN532_RESET, OUTPUT);
+
+  //  delay(5000);
+  //digitalWrite(PN532_RSTPDN, HIGH);
   nfc.begin();
 
   uint32_t versiondata = nfc.getFirmwareVersion();
@@ -167,19 +214,11 @@ void setup(void) {
   digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);
   digitalWrite(LED_PIN, LOW);
-}
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-void ShowNotification(void)
-{
-  tone(BUZZ_PIN, 440);
-  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(500);                    // Wait a bit before reading the card again
-  noTone(BUZZ_PIN);
-  digitalWrite(LED_PIN, LOW);
+  digitalWrite(PN532_RSTPDN, LOW);     // RESET the NFC PN532
+
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 void loop(void) {
   uint8_t success;
   uint8_t uid[32];  // Buffer to store the returned UID

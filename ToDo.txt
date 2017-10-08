@@ -1,5 +1,7 @@
 ToDo:
-1) Use PWM type of signal to test if the Arduino can wake up when this signal goes LOW and turn off when this signal goes HIGH. This simulates the CLK from the Fox
+1) DONE:Use PWM type of signal to test if the Arduino can wake up when this signal goes LOW and turn off when this signal goes HIGH. This simulates the CLK from the Fox
 Use sampling for the 1 sec pulse by using 4 samples = 0.25 sec
+This is done with 3 samples every 0.666 seconds. Every sample should be LOW something below 50 when the ADC can range from 0-1023 that maps to 0V to 5V.
+
 2) Use the RST pin on the NFC, so that it can be shutdown when not in use.
 3) Provide a way to do this via software by setting the time =) This is for a standalone system.
