@@ -41,7 +41,7 @@ RtcDS3231<TwoWire> Rtc(Wire);
 #define UART_ENABLE 0
 #if UART_ENABLE
 #include <SoftwareSerial.h>
-SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
+SoftwareSerial foxSerial(7, 6);         // Arduino RX, Arduino TX
 #endif
 
 #include <SPI.h>
@@ -50,17 +50,18 @@ SoftwareSerial foxSerial(7, 6); // Arduino RX, Arduino TX
 
 // If using the breakout or shield with I2C, define just the pins connected
 // to the IRQ and reset lines.  Use the values below (2, 3) for the shield!
-#define PN532_IRQ   (2)
-#define PN532_RESET (3)  // Not connected by default on the NFC Shield
-#define PN532_RSTPDN (8)  // HOLD RESET LOW until the fox is connected
+#define PN532_IRQ             (2)
+#define PN532_RESET           (3)                         // Not connected by default on the NFC Shield
+#define PN532_RSTPDN          (8)                         // HOLD RESET LOW until the fox is connected
 // I2C: A4 (SDA) and A5 (SCL)
 
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
-#define BUZZ_PIN   (5)
-#define LED_PIN    (4)
+#define BUZZ_PIN              (5)
+#define LED_PIN               (4)
 
-const int pinDetectPWM = A0; // Pin to sample the ADC
+#define pinTurnOnHiSideSwitch (12)                        // Turn on the system
+const int pinDetectPWM = A0;                              // Pin to sample the ADC
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 bool detectPWMLowSignalFromFox() {
@@ -74,7 +75,7 @@ bool detectPWMLowSignalFromFox() {
       valPWM[i] = analogRead(pinDetectPWM);
       //Calculate and print result
       if ( valPWM[i] < 50) {
-        sampledPWM += 1;  // Detect if all values are less than 50 or low
+        sampledPWM += 1;                                // Detect if all values are less than 50 or low
       }
       Serial.println(valPWM[i]);
       delay(666);
@@ -82,6 +83,7 @@ bool detectPWMLowSignalFromFox() {
     if (sampledPWM == MAX_MEAS_IN_1_CYCLE) {
       // Low signal detected, time to boot up
       Serial.println("BootUp");
+      digitalWrite(pinTurnOnHiSideSwitch, HIGH);        // Provide power to the RTC and NFC chip
       return (true);
     } else {
       // Sleep for 30 seconds, so that no-hunter can reach a fox within 30 seconds
@@ -169,8 +171,8 @@ void RTCReadOut() {
 void ShowNotification(void)
 {
   tone(BUZZ_PIN, 440);
-  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(500);                    // Wait a bit before reading the card again
+  digitalWrite(LED_PIN, HIGH);                            // turn the LED on (HIGH is the voltage level)
+  delay(500);                                             // Wait a bit before reading the card again
   noTone(BUZZ_PIN);
   digitalWrite(LED_PIN, LOW);
 }
@@ -178,7 +180,12 @@ void ShowNotification(void)
 void setup(void) {
   Serial.begin(4800);
 
+#if 0
+  // TODO: Need to test when we have the fox
+  pinMode(pinTurnOnHiSideSwitch, OUTPUT);
+  digitalWrite(pinTurnOnHiSideSwitch, LOW);
   detectPWMLowSignalFromFox();
+#endif
 
   // Initialize the RTC
   setupRTC();
@@ -211,18 +218,18 @@ void setup(void) {
 
   Serial.println("Waiting for an ISO14443A Card ...");
   pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(LED_PIN, HIGH);                            // turn the LED on (HIGH is the voltage level)
   delay(500);
   digitalWrite(LED_PIN, LOW);
 
-  digitalWrite(PN532_RSTPDN, LOW);     // RESET the NFC PN532
+  digitalWrite(PN532_RSTPDN, LOW);                        // RESET the NFC PN532
 
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void loop(void) {
   uint8_t success;
-  uint8_t uid[32];  // Buffer to store the returned UID
-  uint8_t uidLength;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
+  uint8_t uid[32];                                        // Buffer to store the returned UID
+  uint8_t uidLength;                                      // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
 
   // Wait for an ISO14443A type cards (Mifare, etc.).  When one is found
   // 'uid' will be populated with the UID, and uidLength will indicate
@@ -344,7 +351,7 @@ void loop(void) {
                  || (rxByte[0] == 0x7D) && (rxByte[1] == 0x22) && (rxByte[2] == 0xE2))
         {
           // Successful in talking to fox
-          foxSerial.write(0x6F);  // To tell the fox that the puncher was registered
+          foxSerial.write(0x6F);                            // To tell the fox that the puncher was registered
 
           nfc.mifareultralight_WritePage (4 + data[1], rxByte);
           data[1] += 1;
