@@ -53,7 +53,7 @@ SoftwareSerial foxSerial(7, 6);         // Arduino RX, Arduino TX
 #define PN532_IRQ             (2)
 #define PN532_RESET           (3)                         // Not connected by default on the NFC Shield
 #define PN532_RSTPDN          (8)                         // HOLD RESET LOW until the fox is connected
-// I2C: A4 (SDA) and A5 (SCL)
+// Nano: I2C: A4 (SDA) and A5 (SCL)
 
 Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
